@@ -8,9 +8,7 @@ from actions import (
 )
 from data import export_data, import_data
 
-students = []
-
-def show_menu():
+def show_menu(students):
     while True:
         print("\n--- Student Management System ---")
         print("1. Add students")
