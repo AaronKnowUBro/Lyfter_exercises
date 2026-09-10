@@ -1,0 +1,21 @@
+from functools import wraps
+
+def solo_numeros(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+
+        todos_los_valores = list(args) + list(kwargs.values())
+        
+        for valor in todos_los_valores:
+
+            if not isinstance(valor, (int, float)) or isinstance(valor, bool):
+                raise TypeError(f"El argumento {valor} ({type(valor).__name__}) no es un número válido.")
+        
+        return func(*args, **kwargs)
+    return wrapper
+
+@solo_numeros
+def calcular_area_rectangulo(base, altura):
+    return base * altura
+
+print(calcular_area_rectangulo(10, 5)) 

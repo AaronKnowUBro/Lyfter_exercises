@@ -1,0 +1,46 @@
+from datetime import date
+from functools import wraps
+
+class User:
+    def __init__(self, name: str, date_of_birth: date):
+        self.name = name
+        self.date_of_birth = date_of_birth
+
+    @property
+    def age(self) -> int:
+        hoy = date.today()
+        cumpleanos_pasado = (hoy.month, hoy.day) >= (self.date_of_birth.month, self.date_of_birth.day)
+        return hoy.year - self.date_of_birth.year - (not cumpleanos_pasado)
+
+def solo_mayores_de_edad(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        usuario = None
+        for arg in args:
+            if isinstance(arg, User):
+                usuario = arg
+                break
+        
+        if usuario is None:
+            for val in kwargs.values():
+                if isinstance(val, User):
+                    usuario = val
+                    break
+
+        if usuario is None:
+            raise ValueError("No se proporcionó un objeto User como parámetro.")
+
+        if usuario.age < 18:
+            raise PermissionError(f"El usuario {usuario.name} tiene {usuario.age} años y debe ser mayor de edad (18+).")
+
+        return func(*args, **kwargs)
+    return wrapper
+
+user_mayor = User("Aaron", date(2000, 6, 7))
+user_menor = User("Sofía", date(2012, 8, 20))
+
+@solo_mayores_de_edad
+def dar_acceso_sistema(user: User):
+    print(f"Acceso concedido a {user.name} (Edad: {user.age}).")
+
+dar_acceso_sistema(user_mayor)
