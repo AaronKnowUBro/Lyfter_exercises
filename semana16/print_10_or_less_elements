@@ -1,0 +1,5 @@
+Big O: O(1) (Constante)
+
+La función utiliza min(list_len, 10), lo que garantiza que el bucle se ejecutará como máximo 10 veces, independientemente de si la lista tiene 100, 1,000 o 1,000,000 de elementos. 
+
+Al estar acotado por un número fijo y constante de iteraciones, la complejidad temporal es constante.

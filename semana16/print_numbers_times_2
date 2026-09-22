@@ -1,0 +1,5 @@
+Big O: O(n) (Lineal)
+
+for number in numbers_list:
+    print(number * 2)
+Hay un solo bucle. Si la lista tiene 5 números, el bucle se ejecuta 5 veces. Si tiene 1,000 números, se ejecuta 1,000 veces. La cantidad de trabajo crece exactamente al mismo ritmo que el tamaño de la lista (n).
