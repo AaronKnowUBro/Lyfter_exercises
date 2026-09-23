@@ -1,0 +1,6 @@
+Big O: O(a \times b) o O(n^2) si ambas listas tienen el mismo tamaño (n)
+
+Cuenta con dos bucles anidados. El bucle exterior se ejecuta "a" veces (tamaño de list_a) y, por cada iteración, el bucle interior recorre hasta "b" veces (tamaño de list_b). 
+
+En el peor de los casos, cuando no hay elementos iguales o el elemento común está al final, la función realiza a\times b comparaciones.
+

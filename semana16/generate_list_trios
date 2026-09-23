@@ -1,0 +1,4 @@
+Big O: O(a×b×c) o O(n3) si las tres listas tienen el mismo tamaño (n)
+
+La función contiene tres bucles anidados (element_a, element_b, element_c). 
+El número total de iteraciones y operaciones de append será exactamente el producto de la cantidad de elementos de las tres listas (∣a∣×∣b∣×∣c∣).

@@ -1,0 +1,12 @@
+La Big O mide cómo aumenta el tiempo que tarda un código a medida que los datos de entrada se hacen más grandes.
+
+1. Análisis de bubble_sort
+Compara pares de elementos adyacentes y los va intercambiando si están en el orden equivocado. Esto se repite varias veces.
+
+La cantidad de comparaciones es la suma de una serie aritmética (n-1) + (n-2) + \dots + 1 = \frac{n(n-1)}{2} = \frac{n^2 - n}{2}. Al descartar constantes y términos de menor orden, la complejidad resulta en O(n^2).
+
+El mejor caso se da si la lista ya está ordenada y tiene bandera de optimización: O(n)
+Si el algoritmo detecta que no se realizó ningún intercambio en la primera pasada, finaliza tempranamente tras revisar la lista una sola vez.
+
+Complejidad Espacial: O(1) 
+Ordena la lista in-place, sin usar memoria adicional significativa).
